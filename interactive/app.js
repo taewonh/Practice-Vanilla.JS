@@ -43,3 +43,30 @@ console.log("all H1 Tag", allH1);
 const firstH2 = document.querySelector(".selectDiv h2");
 console.log("first H2 Tag", firstH2);
 
+/**
+ * 4. Events
+ * document 객체는 브라우저에서 제공해준다.
+ * 현재 보고있는 app.js에서 document 객체를 사용할 수 있는 이유는
+ * index.html에서 보고있는 js를 import하고 있기 때문에
+ * 브라우저에서 해당 document 객체를 제공해주는 것이다.
+ */
+
+/**
+ * 자바스크립트를 이용하여 css를 컨트롤, 태그의 색상을 변경할 수 있다.
+ * 
+ * 또한 해당 element에 eventListener를 적용한다.
+ * arguments("eventName", "function");
+ * 해당 태그에 첫번째 argument로 지정한 이벤트가 발생하면,
+ * 두번째 argument로 지정한 함수가 호출된다.
+ * 
+ * 여기서는 해당 태그에 클릭 이벤트가 발생하면,
+ * 해당 태그 글자의 색상을 파란색으로 변경한다.
+ */
+const eventElement1 = document.querySelector("#eventElement1");
+function handleEventElement1Click() {
+    eventElement1.style.color = "blue";
+    alert("Change Color!");
+}
+eventElement1.addEventListener("click", handleEventElement1Click);
+
+
