@@ -62,11 +62,26 @@ console.log("first H2 Tag", firstH2);
  * 여기서는 해당 태그에 클릭 이벤트가 발생하면,
  * 해당 태그 글자의 색상을 파란색으로 변경한다.
  */
-const eventElement1 = document.querySelector("#eventElement1");
-function handleEventElement1Click() {
-    eventElement1.style.color = "blue";
+const eventElement = document.querySelector("#eventElement");
+
+function handleEventElementClick() {
+    eventElement.style.color = "blue";
     alert("Change Color!");
 }
-eventElement1.addEventListener("click", handleEventElement1Click);
+eventElement.addEventListener("click", handleEventElementClick);
 
+/**
+ * mouseenter, mouseleave 이벤트를 추가한다.
+ * 이벤트 목록은 console.dir(element)로 출력한 목록 중
+ * on~~ 형태가 붙은 항목들이며 해당 항목에서 on을 제거해서
+ * eventListener에 argument로 전달한다.
+ */
+function handleEventElementEnter() {
+    eventElement.innerText = "Mouse is here!";
+}
 
+function handleEventElementLeave() {
+    eventElement.innerText = "Mouse is leave";
+}
+eventElement.addEventListener("mouseenter", handleEventElementEnter);
+eventElement.addEventListener("mouseleave", handleEventElementLeave);
