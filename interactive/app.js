@@ -71,7 +71,7 @@ function handleEventElementClick() {
 eventElement.addEventListener("click", handleEventElementClick);
 
 /**
- * mouseenter, mouseleave 이벤트를 추가한다.
+ * mouseenter 이벤트를 추가한다.
  * 이벤트 목록은 console.dir(element)로 출력한 목록 중
  * on~~ 형태가 붙은 항목들이며 해당 항목에서 on을 제거해서
  * eventListener에 argument로 전달한다.
@@ -79,9 +79,19 @@ eventElement.addEventListener("click", handleEventElementClick);
 function handleEventElementEnter() {
     eventElement.innerText = "Mouse is here!";
 }
+eventElement.addEventListener("mouseenter", handleEventElementEnter);
 
+/**
+ * Element.onEventListener의 파라미터로 이벤트를 지정하는 것이 아닌
+ * Element.onmouseleave과 같이 이벤트 메서드를 직접 지정할 수도 있다.
+ */
 function handleEventElementLeave() {
     eventElement.innerText = "Mouse is leave";
 }
-eventElement.addEventListener("mouseenter", handleEventElementEnter);
-eventElement.addEventListener("mouseleave", handleEventElementLeave);
+eventElement.onmouseleave = handleEventElementLeave;
+
+function handleWindowResize() {
+    //화면 크기가 바뀌었을 때 수행할 이벤트 정의
+    document.body.style.backgroundColor = "tomato";
+}
+window.addEventListener("resize", handleWindowResize);
